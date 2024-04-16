@@ -51,7 +51,7 @@ class AuthorRepositoryImpl(
     }
 
     private fun toModel(r: AuthorRecord?): Author {
-        r?.id ?: throw RuntimeException("Author ID is null")
+        r?.id ?: throw RuntimeException("Author is not found")
         return Author(r.id!!, r.name, r.url)
     }
 }

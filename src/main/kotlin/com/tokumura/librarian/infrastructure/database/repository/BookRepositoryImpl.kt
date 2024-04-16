@@ -58,7 +58,7 @@ class BookRepositoryImpl(
     }
 
     private fun toModel(r: BookRecord?): Book {
-        r?.id ?: throw RuntimeException("Book ID is null")
+        r?.id ?: throw RuntimeException("Book is not found")
         return Book(r.id!!, r.title, r.authorId)
     }
 }
