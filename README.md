@@ -34,3 +34,14 @@
 | [書籍情報を新規追加](https://github.com/tokumura/librarian/blob/main/params.md#postbook) | POST    | /book                         |
 | [書籍情報を更新](https://github.com/tokumura/librarian/blob/main/params.md#putbook)                                                                     | PUT     | /book/{bookId}                |
 | 書籍情報を削除                                                                         | DELETE  | /book/{bookId}                |
+
+## Library & Version
+
+- Java 21
+- Kotlin 1.9.23
+- Spring Boot 3.2.4
+- Gradle 8.7
+- JOOQ 3.19.7
+- Flyway 10.11.0
+- Docker Compose
+- PostgreSQL latest
