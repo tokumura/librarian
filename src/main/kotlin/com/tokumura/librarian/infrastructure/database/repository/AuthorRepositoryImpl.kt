@@ -29,7 +29,7 @@ class AuthorRepositoryImpl(
         return dslContext.insertInto(AUTHOR)
             .set(AUTHOR.NAME, author.name)
             .set(AUTHOR.URL, author.url)
-            .returning(AUTHOR.ID, AUTHOR.NAME)
+            .returning(AUTHOR.ID, AUTHOR.NAME, AUTHOR.URL)
             .fetchOne()
             .let { toModel(it) }
     }
@@ -39,7 +39,7 @@ class AuthorRepositoryImpl(
             .set(AUTHOR.NAME, author.name)
             .set(AUTHOR.URL, author.url)
             .where(AUTHOR.ID.eq(author.id))
-            .returning(AUTHOR.ID, AUTHOR.NAME)
+            .returning(AUTHOR.ID, AUTHOR.NAME, AUTHOR.URL)
             .fetchOne()
             .let { toModel(it) }
     }
