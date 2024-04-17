@@ -1,6 +1,7 @@
 package com.tokumura.librarian.application.service
 
 import com.tokumura.librarian.domain.model.Book
+import com.tokumura.librarian.domain.model.BookWithAuthor
 import com.tokumura.librarian.presentation.form.book.BookCreateForm
 import com.tokumura.librarian.presentation.form.book.BookUpdateForm
 import com.tokumura.librarian.repository.BookRepository
@@ -16,6 +17,9 @@ class BookService(
 
     @Transactional(readOnly = true)
     fun getBooksByAuthor(authorId: Int) : List<Book> = bookRepo.findAllByAuthorId(authorId)
+
+    @Transactional(readOnly = true)
+    fun searchBooksByAuthorName(authorName: String) : List<BookWithAuthor> = bookRepo.findAllByAuthorName(authorName)
 
     @Transactional(readOnly = true)
     fun getBook(id: Int) : Book = bookRepo.findById(id)

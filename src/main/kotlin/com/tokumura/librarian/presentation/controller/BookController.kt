@@ -4,6 +4,7 @@ import com.tokumura.librarian.application.service.BookService
 import com.tokumura.librarian.presentation.form.book.BookCreateForm
 import com.tokumura.librarian.presentation.form.book.BookUpdateForm
 import com.tokumura.librarian.presentation.form.book.BookResponse
+import com.tokumura.librarian.presentation.form.book.BookSearchResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -22,6 +23,14 @@ class BookController(
     ): List<BookResponse> {
         val books = bookService.getBooksByAuthor(authorId)
         return books.map { BookResponse(it) }
+    }
+
+    @GetMapping("/books/search")
+    fun getBooksSearch(
+        @RequestParam("authorname") authorName: String
+    ): List<BookSearchResponse> {
+        val books = bookService.searchBooksByAuthorName(authorName)
+        return books.map { BookSearchResponse(it) }
     }
 
     @GetMapping("/book/{id}")
